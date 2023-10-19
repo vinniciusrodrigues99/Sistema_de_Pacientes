@@ -1,7 +1,7 @@
 let titulo = document.querySelector("h1");
-titulo.textContent = "Campeonato de FIFA 24";
+titulo.textContent = "Sistema de cadastro";
 let participantes = document.querySelector("h2");
-participantes.innerHTML = "Atletas participando:";
+participantes.innerHTML = "Pacientes cadastrados";
 //criação da função IMC
 
 var pacientes = document.querySelectorAll('.paciente');
@@ -9,13 +9,14 @@ for(i = 0; i < pacientes.length; i++)
 {
     var paciente = pacientes[i];
     console.log(paciente.querySelector(".info-nome").textContent);
-    peso = paciente.querySelector(".info-peso").textContent;
+    var peso = paciente.querySelector(".info-peso").textContent;
     console.log(peso);
-    altura = paciente.querySelector(".info-altura").textContent;
+    var altura = paciente.querySelector(".info-altura").textContent;
     console.log(altura);
-    let imc = peso / (Math.pow(altura, 2));
-    var exibirIMC = paciente.querySelector(".info-imc").textContent = imc.toFixed(2);
-    console.log("O seu IMC é " +imc.toFixed(2));
+    var exibirIMC = paciente.querySelector(".info-imc").textContent = calcularIMC(peso, altura);
+    // let imc = peso / (Math.pow(altura, 2));
+    //var exibirIMC = paciente.querySelector(".info-imc").textContent = imc.toFixed(2);
+    console.log("O seu IMC é " +calcularIMC(peso, altura));
     if(peso<0 || peso >=500)
     {
         var pesoErrado = paciente.querySelector(".info-imc");
@@ -33,37 +34,11 @@ for(i = 0; i < pacientes.length; i++)
         paciente.classList.add('paciente-invalido');
     }
 }
-var botaoAdicionar = document.querySelector('#adicionar-paciente');
-botaoAdicionar.addEventListener("click", (event) => 
+function calcularIMC(peso, altura)
 {
-    event.preventDefault();
-    console.log('Oi, eu sou o botão e fui clicado');
-    var form = document.querySelector("#form-adiciona");
-    console.log(form.nome.value);
-    var adcPaciente = document.createElement("tr");
-    var tdNome = document.createElement("td");
-    tdNome.textContent = form.nome.value;
-    var tdPeso = document.createElement("td");
-    tdPeso.textContent = form.peso.value;
-    var tdAltura = document.createElement("td");
-    tdAltura.textContent = form.altura.value;
-    var tdGordura = document.createElement("td");
-    tdGordura.textContent = form.gordura.value;
-    var tdImc = document.createElement("td");
-    tdImc.textContent = exibirIMC;
-
-    adcPaciente.appendChild(tdNome);
-    adcPaciente.appendChild(tdPeso);
-    adcPaciente.appendChild(tdAltura);
-    adcPaciente.appendChild(tdGordura);
-    adcPaciente.appendChild(tdImc);
-
-    var tableNova = document.querySelector("#tabela-pacientes")
-    tableNova.appendChild(adcPaciente);
-    adcPaciente.classList.add('paciente');
-    
+    var imc = peso / (Math.pow(altura, 2));
+    return imc.toFixed(2);
 }
-)
 
         
         
