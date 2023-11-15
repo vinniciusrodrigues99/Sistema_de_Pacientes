@@ -17,7 +17,9 @@ for(i = 0; i < pacientes.length; i++)
     // let imc = peso / (Math.pow(altura, 2));
     //var exibirIMC = paciente.querySelector(".info-imc").textContent = imc.toFixed(2);
     console.log("O seu IMC é " +calcularIMC(peso, altura));
-    if(peso<0 || peso >=500)
+    var pesoValido = validarPeso(peso)
+    var alturaValida = validarAltura(altura);
+    /* if(peso<0 || peso >=500)
     {
         var pesoErrado = paciente.querySelector(".info-imc");
         pesoErrado.textContent = "Peso inválido"
@@ -32,6 +34,39 @@ for(i = 0; i < pacientes.length; i++)
         //paciente.style.backgroundColor = "lightCoral"; //alterar o background
         // paciente.style.color = "red"; -> modificando o estilo da cor da linha
         paciente.classList.add('paciente-invalido');
+    } */
+}
+
+function validarPeso(peso){
+    if(peso < 0 || peso >=250)
+    {
+        var pesoErrado = paciente.querySelector(".info-imc");
+        pesoErrado.textContent = "Peso inválido"
+        //paciente.style.color = "red";
+        // paciente.style.backgroundColor = "lightCoral"; //alterar o background
+        paciente.classList.add('paciente-invalido'); 
+        return false;
+    }
+    if(peso > 0 && peso < 250)
+    {
+    return true;
+    }
+}
+
+function validarAltura(altura){
+    if(altura < 0 || altura > 3)
+    {
+        var alturaErrada = paciente.querySelector(".info-imc");
+        alturaErrada.textContent = "Altura inválida";
+        //paciente.style.backgroundColor = "lightCoral"; //alterar o background
+        // paciente.style.color = "red"; -> modificando o estilo da cor da linha
+        paciente.classList.add('paciente-invalido');
+        return false;
+    }
+    else
+    {
+        if(altura > 0 && altura < 3)
+        return true;
     }
 }
 function calcularIMC(peso, altura)
@@ -39,6 +74,7 @@ function calcularIMC(peso, altura)
     var imc = peso / (Math.pow(altura, 2));
     return imc.toFixed(2);
 }
+
 
         
         
