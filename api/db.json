@@ -1,0 +1,25 @@
+{
+  "paciente": [
+    {
+      "nome": "Vinni",
+      "peso": 80,
+      "altura": 8.5,
+      "gordura": 14,
+	"imc": 	20
+    },
+    {
+     "nome": "Maria",
+      "peso": 80,
+      "altura": 8.5,
+      "gordura": 9,	
+	"imc": 26 
+    },
+    {
+      "nome": "Leticia",
+      "peso": 80,
+      "altura": 8.5,
+      "gordura": 15,
+	"imc": 23
+    }
+  ]
+}

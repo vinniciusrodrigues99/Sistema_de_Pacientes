@@ -12,7 +12,7 @@ botaoAdicionar.addEventListener("click", (event) =>
     var gordura = form.gordura.value */
     var paciente = extraindoForm(form);
     //criando as linhas e tabelas com base nas informações de entrada do form  
-    var adcPaciente = montarTr(paciente);
+    //var adcPaciente = montarTr(paciente);
     var erros = validaPaciente(paciente);
     console.log(erros);
     if(erros.length>0){
@@ -21,6 +21,7 @@ botaoAdicionar.addEventListener("click", (event) =>
         form.reset(); 
         return;
     }
+    AdicionarPacienteNaTabela(paciente);
     /*
     var adcPaciente = document.createElement("tr");
     var tdNome = document.createElement("td");
@@ -40,8 +41,8 @@ botaoAdicionar.addEventListener("click", (event) =>
     adcPaciente.appendChild(tdImc);
     */
     //adicionando o paciente na tabela
-    var tableNova = document.querySelector("#tabela-pacientes")
-    tableNova.appendChild(adcPaciente);
+    //var tableNova = document.querySelector("#tabela-pacientes")
+   // tableNova.appendChild(adcPaciente);
    /* adcPaciente.classList.add('paciente');
     adcPaciente.classList.add("info-imc"); */ 
     
@@ -50,6 +51,11 @@ botaoAdicionar.addEventListener("click", (event) =>
     var mensagem = document.querySelector("#mensagens-erro");
     mensagem.innerHTML = "";
 });
+function AdicionarPacienteNaTabela(paciente){
+    var adcPaciente = montarTr(paciente);
+    var tableNova = document.querySelector("#tabela-pacientes")
+    tableNova.appendChild(adcPaciente);
+}
 function exibeMensagensDeErros(erros){
     var ul = document.querySelector("#mensagens-erro");
     ul.innerHTML = "";

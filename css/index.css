@@ -111,7 +111,7 @@ button{
     display: block;
     clear: both;
     margin: 10px 0px;
-
+	border-radius: 10px;
 }
 
 button:active{
@@ -146,4 +146,10 @@ button[disabled=disabled], button:disabled {
 	width: 200px;
 	height: 35px;
 	margin-bottom: 10px;
+}
+.invisivel{
+	display: none;
+}
+.secundario{
+	height: 60px;
 }
